@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.drumproject.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\Imagine\\Desktop\\babohorquez10 RM\\DrumProject\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "DrumProject [Testing]"
+        }
+      }
+    }
+  ]
+}
