@@ -22,7 +22,7 @@ public class MainScript : MonoBehaviour
         soundHiHat = hiHat.transform.Find("Collid").GetComponent<Sound>();
         soundSnare = snare.transform.Find("Collid").GetComponent<Sound>();
 
-        //Invoke("playTrack1", 5f);
+        Invoke("playTrack1", 5f);
     }
 
     // Update is called once per frame
