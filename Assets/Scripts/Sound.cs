@@ -17,11 +17,23 @@ public class Sound : MonoBehaviour
     {
         
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger");
+        bool movingDown = other.gameObject.GetComponent<Velocidad>().isMovingDown();
 
+        if (!("" + other.GetType()).Equals("UnityEngine.MeshCollider") && movingDown) playSound();
+        
+    }
+
+    public void playSound()
+    {
         source.Play();
     }
+
+    public void playRepeating(float initTime, float repeatTime)
+    {
+        InvokeRepeating("playSound", initTime, repeatTime);
+    }
+    
 }
