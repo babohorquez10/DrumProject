@@ -7,6 +7,8 @@ public class MainScript : MonoBehaviour
     public GameObject hiHat;
     public GameObject snare;
 
+    public GameObject marcador;
+
     private Sound soundHiHat;
     private Sound soundSnare;
 
@@ -16,6 +18,9 @@ public class MainScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Invoke("moverMarcador", 5f);
+
         hiHatSource = hiHat.transform.Find("Collid").GetComponent<AudioSource>();
         snareSource = snare.transform.Find("Collid").GetComponent<AudioSource>();
 
@@ -28,13 +33,22 @@ public class MainScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void playTrack1()
     {
         soundHiHat.playRepeating(0f, 0.5f);
         soundSnare.playRepeating(1f, 2f);
+    }
+
+    private void moverMarcador()
+    {
+        MoverMarcador scrMarcador = marcador.GetComponent<MoverMarcador>();
+
+        scrMarcador.endMarker = GameObject.Find("Fin").transform;
+
+        scrMarcador.mover();
     }
 
 }
