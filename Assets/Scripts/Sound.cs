@@ -5,11 +5,17 @@ using UnityEngine;
 public class Sound : MonoBehaviour
 {
     private AudioSource source;
+    private int timesPlayed = 0;
+    private int max;
+    private MainScript master;
+
+    public bool termino = false;
 
     // Start is called before the first frame update
     void Start()
     {
         source = GetComponent<AudioSource>();
+        master = GameObject.Find("Master").GetComponent<MainScript>();
     }
 
     // Update is called once per frame
@@ -28,12 +34,26 @@ public class Sound : MonoBehaviour
 
     public void playSound()
     {
-        source.Play();
+        if(timesPlayed < max)
+        {
+            source.Play();
+            timesPlayed++;
+        }
+        else
+        {
+            termino = true;
+            CancelInvoke("playSound");
+            if (gameObject.name.Equals("Metronomo")) master.playTrack1();
+        }
+        
     }
 
-    public void playRepeating(float initTime, float repeatTime)
+    public void playRepeating(float initTime, float repeatTime, int maxTimes)
     {
+        max = maxTimes;
         InvokeRepeating("playSound", initTime, repeatTime);
     }
+
+    
     
 }
