@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class MainScript : MonoBehaviour
@@ -14,12 +13,13 @@ public class MainScript : MonoBehaviour
     public float bpm;
 
     private ArrayList listaGolpes;
+    private ArrayList listaGolpesUsuario;
 
     private float tempoScns;
 
     private Sound soundHiHat;
     private Sound soundSnare;
-    private Sound soundMetronomo;
+    private Metronomo metronomoScr;
 
     private AudioSource hiHatSource;
     private AudioSource snareSource;
@@ -30,11 +30,10 @@ public class MainScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Invoke("moverMarcador", 5f);
-
         listaSources = new Sound[2];
 
         listaGolpes = new ArrayList();
+        listaGolpesUsuario = new ArrayList();
 
         tempoScns = 1f / (bpm/60);
 
@@ -44,7 +43,7 @@ public class MainScript : MonoBehaviour
         snareSource = snare.transform.Find("Collid").GetComponent<AudioSource>();
 
 
-        soundMetronomo = metronomo.GetComponent<Sound>();
+        metronomoScr = metronomo.GetComponent<Metronomo>();
         soundHiHat = hiHat.transform.Find("Collid").GetComponent<Sound>();
         soundSnare = snare.transform.Find("Collid").GetComponent<Sound>();
 
@@ -59,7 +58,7 @@ public class MainScript : MonoBehaviour
 
     }
 
-    public void playTrack1()
+    public void playTrack()
     {
         soundHiHat.playRepeating(0f, tempoScns / 2f, 16);
         soundSnare.playRepeating(tempoScns, tempoScns * 2f, 4);
@@ -82,17 +81,26 @@ public class MainScript : MonoBehaviour
 
         //Recorrer Lista
 
-        string l = "Todos: ";
+        string str = "Estimado: ";
 
         foreach(Golpe golpe in listaGolpes)
         {
-            l += golpe.nombreGolpeado + ", T: " + golpe.timestamp + "; ";
+            str += golpe.nombreGolpeado + ", T: " + golpe.timestamp + "; ";
         }
 
-        Debug.Log(l);
+        Debug.Log(str);
+
+        str = "Real : ";
+        foreach (Golpe golpe in listaGolpesUsuario)
+        {
+            str += golpe.nombreGolpeado + ", T: " + golpe.timestamp + "; ";
+        }
+
+        Debug.Log(str);
         CancelInvoke("verificarTermino");
     }
 
+    /*
     private void moverMarcador()
     {
         MoverMarcador scrMarcador = marcador.GetComponent<MoverMarcador>();
@@ -101,15 +109,21 @@ public class MainScript : MonoBehaviour
 
         scrMarcador.mover();
     }
+    */
 
     private void count()
     {
-        soundMetronomo.playRepeating(0f, tempoScns, 4);
+        metronomoScr.playRepeating(0f, tempoScns, 4);
     }
 
     public void registrarGolpe(string nombre)
     {
         listaGolpes.Add(new Golpe { nombreGolpeado = nombre, timestamp = Time.time * 1000 });
+    }
+
+    public void registrarGolpeUsuario(string nombre)
+    {
+        listaGolpesUsuario.Add(new Golpe { nombreGolpeado = nombre, timestamp = Time.time * 1000 });
     }
 }
 

@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 
-public class Sound : MonoBehaviour
+public class Metronomo : MonoBehaviour
 {
     private AudioSource source;
     private int timesPlayed = 0;
     private int maxStrokes;
     private MainScript master;
-    public string nombreElemento;
 
     public bool termino = false;
 
@@ -20,35 +19,23 @@ public class Sound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        bool movingDown = other.gameObject.GetComponent<Velocidad>().isMovingDown();
-
-        if (!("" + other.GetType()).Equals("UnityEngine.MeshCollider") && movingDown)
-        {
-            source.Play();
-            master.registrarGolpeUsuario(nombreElemento);
-        }
 
     }
 
     public void playSound()
     {
-        if(timesPlayed < maxStrokes)
+        if (timesPlayed < maxStrokes)
         {
             source.Play();
-            master.registrarGolpe(nombreElemento);
             timesPlayed++;
         }
         else
         {
             termino = true;
             CancelInvoke("playSound");
+            master.playTrack();
         }
-        
+
     }
 
     public void playRepeating(float initTime, float repeatTime, int maxTimes)
