@@ -28,8 +28,8 @@ public class Sound : MonoBehaviour
     {
         bool movingDown = other.gameObject.GetComponent<Velocidad>().isMovingDown();
 
-        if (!("" + other.GetType()).Equals("UnityEngine.MeshCollider") && movingDown) playSound();
-        
+        if (!("" + other.GetType()).Equals("UnityEngine.MeshCollider") && movingDown) source.Play();
+
     }
 
     public void playSound()
@@ -37,12 +37,14 @@ public class Sound : MonoBehaviour
         if(timesPlayed < max)
         {
             source.Play();
+            if (!gameObject.name.Equals("Metronomo")) master.registrarGolpe(gameObject.transform.parent.gameObject.name);
             timesPlayed++;
         }
         else
         {
             termino = true;
             CancelInvoke("playSound");
+
             if (gameObject.name.Equals("Metronomo")) master.playTrack1();
         }
         

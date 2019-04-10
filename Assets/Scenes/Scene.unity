@@ -175,7 +175,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1400,7 +1400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.046
+      value: -0.059
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1733,6 +1733,10 @@ PrefabInstance:
     - target: {fileID: 4948721212918030, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -92.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727050, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}

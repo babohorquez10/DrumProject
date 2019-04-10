@@ -15,8 +15,7 @@ public class Velocidad : MonoBehaviour
         movingDown = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         Vector3 curVel = (transform.position - prevLoc) / Time.deltaTime;
 
@@ -27,7 +26,6 @@ public class Velocidad : MonoBehaviour
 
     public bool isMovingDown()
     {
-        //return true;
 
         return movingDown;
     }

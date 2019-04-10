@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class MainScript : MonoBehaviour
@@ -13,6 +13,8 @@ public class MainScript : MonoBehaviour
 
     public float bpm;
 
+    private ArrayList listaGolpes;
+
     private float tempoScns;
 
     private Sound soundHiHat;
@@ -23,10 +25,16 @@ public class MainScript : MonoBehaviour
     private AudioSource snareSource;
     private AudioSource metronomoSource;
 
+    private Sound[] listaSources;
+
     // Start is called before the first frame update
     void Start()
     {
         //Invoke("moverMarcador", 5f);
+
+        listaSources = new Sound[2];
+
+        listaGolpes = new ArrayList();
 
         tempoScns = 1f / (bpm/60);
 
@@ -48,17 +56,41 @@ public class MainScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(soundMetronomo.termino)
-        {
-            
-            soundMetronomo.termino = true;
-        }
+
     }
 
     public void playTrack1()
     {
         soundHiHat.playRepeating(0f, tempoScns / 2f, 16);
         soundSnare.playRepeating(tempoScns, tempoScns * 2f, 4);
+
+        listaSources = new Sound[2];
+
+        listaSources[0] = soundHiHat;
+        listaSources[1] = soundSnare;
+
+        InvokeRepeating("verificarTermino", 0f, 1f);
+    }
+
+    private void verificarTermino()
+    {
+
+        foreach(Sound sonido in listaSources)
+        {
+            if (!sonido.termino) return;
+        }
+
+        //Recorrer Lista
+
+        string l = "Todos: ";
+
+        foreach(Golpe golpe in listaGolpes)
+        {
+            l += golpe.nombreGolpeado + ", T: " + golpe.timestamp + "; ";
+        }
+
+        Debug.Log(l);
+        CancelInvoke("verificarTermino");
     }
 
     private void moverMarcador()
@@ -74,4 +106,17 @@ public class MainScript : MonoBehaviour
     {
         soundMetronomo.playRepeating(0f, tempoScns, 4);
     }
+
+    public void registrarGolpe(string nombre)
+    {
+        listaGolpes.Add(new Golpe { nombreGolpeado = nombre, timestamp = Time.time * 1000 });
+    }
 }
+
+public class Golpe
+{
+    public string nombreGolpeado;
+    public float timestamp;
+}
+
+
