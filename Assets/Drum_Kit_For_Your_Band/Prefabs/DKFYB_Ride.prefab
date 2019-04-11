@@ -202,6 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcf6ddb1dbfd3342ad7ab4d5398b931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nombreElemento: Ride
+  termino: 0
 --- !u!1 &1985327475402220
 GameObject:
   m_ObjectHideFlags: 0

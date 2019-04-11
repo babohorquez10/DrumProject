@@ -39,7 +39,7 @@ public class Sound : MonoBehaviour
     {
         if(timesPlayed < maxStrokes)
         {
-            source.Play();
+            //source.Play();
             master.registrarGolpe(nombreElemento);
             timesPlayed++;
         }

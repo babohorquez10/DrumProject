@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class MainScript : MonoBehaviour
 {
@@ -24,8 +26,12 @@ public class MainScript : MonoBehaviour
     private AudioSource hiHatSource;
     private AudioSource snareSource;
     private AudioSource metronomoSource;
+    private int pickUpItems = 0;
 
     private Sound[] listaSources;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +41,7 @@ public class MainScript : MonoBehaviour
         listaGolpes = new ArrayList();
         listaGolpesUsuario = new ArrayList();
 
-        tempoScns = 1f / (bpm/60);
+        tempoScns = 1f / (bpm / 60);
 
         metronomoSource = metronomo.GetComponent<AudioSource>();
 
@@ -49,13 +55,27 @@ public class MainScript : MonoBehaviour
 
         textBPM.GetComponent<TextMesh>().text = bpm.ToString();
 
-        Invoke("count", 5f);
+        //Invoke("count", 5f);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+
+    }
+
+    public void sostenerBaqueta()
+    {
+        pickUpItems++;
+
+        if (pickUpItems == 2) Invoke("count", 5f);
+    }
+
+    public void soltarBaqueta()
+    {
+        pickUpItems--;
+        CancelInvoke("count");
     }
 
     public void playTrack()
@@ -100,19 +120,9 @@ public class MainScript : MonoBehaviour
         CancelInvoke("verificarTermino");
     }
 
-    /*
-    private void moverMarcador()
-    {
-        MoverMarcador scrMarcador = marcador.GetComponent<MoverMarcador>();
-
-        scrMarcador.endMarker = GameObject.Find("Fin").transform;
-
-        scrMarcador.mover();
-    }
-    */
-
     private void count()
     {
+        listaGolpesUsuario = new ArrayList();
         metronomoScr.playRepeating(0f, tempoScns, 4);
     }
 

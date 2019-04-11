@@ -1136,6 +1136,54 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1692038904}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1692038904}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: sostenerBaqueta
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: soltarBaqueta
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
 --- !u!4 &1443237080 stripped
@@ -1247,7 +1295,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517165767}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1738,6 +1786,59 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1692038904}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1692038904}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: sostenerBaqueta
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: soltarBaqueta
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087197855414387803, guid: 66cad2a33cd0c55498b91cf8d0124453,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
 --- !u!4 &2070022735 stripped
@@ -1802,8 +1903,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2101939819}
-  - component: {fileID: 2101939818}
   - component: {fileID: 2101939817}
+  - component: {fileID: 2101939820}
   m_Layer: 0
   m_Name: Metronomo
   m_TagString: Untagged
@@ -1907,19 +2008,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2101939818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101939816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbcf6ddb1dbfd3342ad7ab4d5398b931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  termino: 0
 --- !u!4 &2101939819
 Transform:
   m_ObjectHideFlags: 0
@@ -1934,3 +2022,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2101939820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101939816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ca05e9a85b98344aa5eb8a42e2b78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  termino: 0
+  guiaMetronomo: 1
