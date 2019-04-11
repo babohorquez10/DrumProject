@@ -852,6 +852,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4119688955794413814, guid: 181e2c42b09af49409a1fbfc57608ada,
+        type: 3}
+      propertyPath: stick
+      value: 
+      objectReference: {fileID: 1181988365}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181e2c42b09af49409a1fbfc57608ada, type: 3}
 --- !u!4 &1080329078 stripped
@@ -964,6 +969,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2914024220433873066, guid: 01119a0939737704fac9b30d40938ba3,
+        type: 3}
+      propertyPath: stick
+      value: 
+      objectReference: {fileID: 1181988365}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01119a0939737704fac9b30d40938ba3, type: 3}
 --- !u!4 &1164821979 stripped
@@ -972,6 +982,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1164821978}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1181988365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1563663407908884, guid: 66cad2a33cd0c55498b91cf8d0124453,
+    type: 3}
+  m_PrefabInstance: {fileID: 2070022734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1181988372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 577369140401190261, guid: 66cad2a33cd0c55498b91cf8d0124453,
+    type: 3}
+  m_PrefabInstance: {fileID: 2070022734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181988365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96fc54893255c9341abd96f5128d6e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215093585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,13 +1119,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1215093586}
     m_Modifications:
+    - target: {fileID: 1563663407908884, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: m_Name
+      value: DKFYB_Drumstick_Izq
+      objectReference: {fileID: 0}
     - target: {fileID: 4948721212918030, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.063
+      value: -0.139
       objectReference: {fileID: 0}
     - target: {fileID: 4948721212918030, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.625
+      value: 0.6681
       objectReference: {fileID: 0}
     - target: {fileID: 4948721212918030, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1736,7 +1768,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1563663407908884, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
       propertyPath: m_Name
-      value: DKFYB_Drumstick
+      value: DKFYB_Drumstick_Der
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563663407908884, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4948721212918030, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1781,10 +1817,6 @@ PrefabInstance:
     - target: {fileID: 4948721212918030, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -92.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 950727050, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.size
@@ -1834,12 +1866,41 @@ PrefabInstance:
       propertyPath: onDetachFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1181988372}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: cogerBaqueta
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 950727048, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1181988365}
+    - target: {fileID: 950727050, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4087197855414387803, guid: 66cad2a33cd0c55498b91cf8d0124453,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4087197855414387803, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66cad2a33cd0c55498b91cf8d0124453, type: 3}
 --- !u!4 &2070022735 stripped
 Transform:
@@ -2034,5 +2095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ca05e9a85b98344aa5eb8a42e2b78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numTotalStrokes: 0
   termino: 0
   guiaMetronomo: 1

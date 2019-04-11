@@ -7,6 +7,7 @@ public class Metronomo : MonoBehaviour
     private int maxStrokes;
     private MainScript master;
     private float time;
+    public int numTotalStrokes;
 
     public bool termino = false;
     public bool guiaMetronomo;
@@ -41,16 +42,11 @@ public class Metronomo : MonoBehaviour
             if (guiaMetronomo) {
                 guiaMetronomo = false;
                 timesPlayed = 0;
-                maxStrokes = 8;
+                maxStrokes = numTotalStrokes;
                 InvokeRepeating("playSound", 0f, time);
             }
         }
 
-    }
-
-    private void tocar()
-    {
-        source.Play();
     }
 
     public void playRepeating(float initTime, float repeatTime, int maxTimes)

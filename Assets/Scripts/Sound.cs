@@ -6,6 +6,10 @@ public class Sound : MonoBehaviour
     private int timesPlayed = 0;
     private int maxStrokes;
     private MainScript master;
+
+    private Velocidad scrDerecha;
+    private Velocidad scrIzquierda;
+
     public string nombreElemento;
 
     public bool termino = false;
@@ -15,6 +19,10 @@ public class Sound : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         master = GameObject.Find("Master").GetComponent<MainScript>();
+
+        scrDerecha = GameObject.Find("DKFYB_Drumstick_Der").GetComponent<Velocidad>();
+        scrIzquierda = GameObject.Find("DKFYB_Drumstick_Izq").GetComponent<Velocidad>();
+
     }
 
     // Update is called once per frame
@@ -25,14 +33,15 @@ public class Sound : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        bool movingDown = other.gameObject.GetComponent<Velocidad>().isMovingDown();
+        bool movingDown = other.gameObject.name.Equals("DKFYB_Drumstick_Der") ? scrDerecha.isMovingDown() : scrIzquierda.isMovingDown();
 
+       //bool movingDown = other.gameObject.GetComponent<Velocidad>().isMovingDown();
+        
         if (!("" + other.GetType()).Equals("UnityEngine.MeshCollider") && movingDown)
         {
-            source.Play();
             master.registrarGolpeUsuario(nombreElemento);
+            source.Play();
         }
-
     }
 
     public void playSound()

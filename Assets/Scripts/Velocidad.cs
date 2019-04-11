@@ -1,32 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class Velocidad : MonoBehaviour
 {
-    private Vector3 prevLoc;
-    private Vector3 curVel;
     private bool movingDown;
+    private Hand scrActual;
+    private Vector3 velocidadBaqueta = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
     {
-        prevLoc = transform.position;
-        movingDown = false;
+        movingDown = false;      
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        Vector3 curVel = (transform.position - prevLoc) / Time.deltaTime;
+        scrActual = GetComponent<Interactable>().attachedToHand;
 
-        movingDown = curVel.y <= 0;
+        if (scrActual != null)
+        {
+            velocidadBaqueta = scrActual.GetTrackedObjectVelocity();
+            movingDown = velocidadBaqueta.y < 0;
+        }
 
-        prevLoc = transform.position;
     }
 
     public bool isMovingDown()
     {
-
         return movingDown;
     }
+
+    
 }

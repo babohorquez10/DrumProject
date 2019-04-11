@@ -29,6 +29,7 @@ public class MainScript : MonoBehaviour
     private int pickUpItems = 0;
 
     private Sound[] listaSources;
+    private Hand mano;
 
 
 
@@ -55,14 +56,17 @@ public class MainScript : MonoBehaviour
 
         textBPM.GetComponent<TextMesh>().text = bpm.ToString();
 
+        mano = GameObject.Find("Player").transform.Find("SteamVRObjects").transform.Find("RightHand").GetComponent<Hand>();
+
         //Invoke("count", 5f);
+        //InvokeRepeating("velocidad", 0f, 0.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
+        
+        
     }
 
     public void sostenerBaqueta()
@@ -80,8 +84,13 @@ public class MainScript : MonoBehaviour
 
     public void playTrack()
     {
+        /*
         soundHiHat.playRepeating(0f, tempoScns / 2f, 16);
         soundSnare.playRepeating(tempoScns, tempoScns * 2f, 4);
+        */
+
+        soundHiHat.playRepeating(0f, tempoScns / 2f, 32);
+        soundSnare.playRepeating(tempoScns, tempoScns * 2f, 8);
 
         listaSources = new Sound[2];
 
@@ -105,7 +114,8 @@ public class MainScript : MonoBehaviour
 
         foreach(Golpe golpe in listaGolpes)
         {
-            str += golpe.nombreGolpeado + ", T: " + golpe.timestamp + "; ";
+            if(!golpe.nombreGolpeado.Contains("Hi"))
+            str += golpe.nombreGolpeado + ": " + golpe.timestamp + "; ";
         }
 
         Debug.Log(str);
@@ -113,7 +123,7 @@ public class MainScript : MonoBehaviour
         str = "Real : ";
         foreach (Golpe golpe in listaGolpesUsuario)
         {
-            str += golpe.nombreGolpeado + ", T: " + golpe.timestamp + "; ";
+            str += golpe.nombreGolpeado + ": " + golpe.timestamp + "; ";
         }
 
         Debug.Log(str);
@@ -123,6 +133,13 @@ public class MainScript : MonoBehaviour
     private void count()
     {
         listaGolpesUsuario = new ArrayList();
+
+        /*
+        metronomoScr.numTotalStrokes = 8;
+        metronomoScr.playRepeating(0f, tempoScns, 4);
+        */
+
+        metronomoScr.numTotalStrokes = 16;
         metronomoScr.playRepeating(0f, tempoScns, 4);
     }
 
