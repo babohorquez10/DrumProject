@@ -14,6 +14,8 @@ public class MainScript : MonoBehaviour
 
     public float bpm;
 
+    public float margenError;
+
     private ArrayList listaGolpes;
     private ArrayList listaGolpesUsuario;
 
@@ -84,13 +86,15 @@ public class MainScript : MonoBehaviour
 
     public void playTrack()
     {
-        /*
+        
         soundHiHat.playRepeating(0f, tempoScns / 2f, 16);
         soundSnare.playRepeating(tempoScns, tempoScns * 2f, 4);
-        */
+        
 
+        /*
         soundHiHat.playRepeating(0f, tempoScns / 2f, 32);
         soundSnare.playRepeating(tempoScns, tempoScns * 2f, 8);
+        */
 
         listaSources = new Sound[2];
 
@@ -108,13 +112,15 @@ public class MainScript : MonoBehaviour
             if (!sonido.termino) return;
         }
 
+        CancelInvoke("verificarTermino");
+
         //Recorrer Lista
 
         string str = "Estimado: ";
 
         foreach(Golpe golpe in listaGolpes)
         {
-            if(!golpe.nombreGolpeado.Contains("Hi"))
+            //if(!golpe.nombreGolpeado.Contains("Hi"))
             str += golpe.nombreGolpeado + ": " + golpe.timestamp + "; ";
         }
 
@@ -127,20 +133,63 @@ public class MainScript : MonoBehaviour
         }
 
         Debug.Log(str);
-        CancelInvoke("verificarTermino");
+        
+        ArrayList errores = validarGolpes();
+
+        str = "Errores : ";
+        foreach (Golpe golpe in errores)
+        {
+            str += golpe.nombreGolpeado + ": " + golpe.timestamp + "; ";
+        }
+
+        Debug.Log(str);
+
+    }
+
+    private ArrayList validarGolpes()
+    {
+        ArrayList errores = new ArrayList();
+
+        foreach(Golpe golpe in listaGolpes)
+        {
+            bool correctoActual = buscarGolpeCorrecto(golpe);
+
+            if (!correctoActual) errores.Add(golpe);
+        }
+
+        return errores;
+    }
+
+    private bool buscarGolpeCorrecto(Golpe golpeCorrecto)
+    {
+        float tiempoCorrecto = golpeCorrecto.timestamp;
+        string nombreCorrecto = golpeCorrecto.nombreGolpeado;
+
+        foreach(Golpe golpe in listaGolpesUsuario)
+        {
+            float tiempoActual = golpe.timestamp;
+
+            float dif = Mathf.Abs(tiempoCorrecto - tiempoActual);
+
+            if(golpe.nombreGolpeado.Equals(nombreCorrecto) && dif <= margenError) return true;   
+        }
+
+        return false;
     }
 
     private void count()
     {
         listaGolpesUsuario = new ArrayList();
 
-        /*
+        
         metronomoScr.numTotalStrokes = 8;
         metronomoScr.playRepeating(0f, tempoScns, 4);
-        */
+        
 
+        /*
         metronomoScr.numTotalStrokes = 16;
         metronomoScr.playRepeating(0f, tempoScns, 4);
+        */
     }
 
     public void registrarGolpe(string nombre)
