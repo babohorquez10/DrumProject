@@ -48,7 +48,8 @@ public class Sound : MonoBehaviour
     {
         if(timesPlayed < maxStrokes)
         {
-            //source.Play();
+            // TODO
+            source.Play();
             master.registrarGolpe(nombreElemento);
             timesPlayed++;
         }
@@ -60,7 +61,7 @@ public class Sound : MonoBehaviour
         
     }
 
-    public void playRepeating(float initTime, float repeatTime, int maxTimes)
+    public void playRepeatingSound(float initTime, float repeatTime, int maxTimes)
     {
         maxStrokes = maxTimes;
         InvokeRepeating("playSound", initTime, repeatTime);

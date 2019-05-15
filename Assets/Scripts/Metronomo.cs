@@ -6,6 +6,7 @@ public class Metronomo : MonoBehaviour
     private int timesPlayed = 0;
     private int maxStrokes;
     private MainScript master;
+    private int track;
     private float time;
     public int numTotalStrokes;
 
@@ -37,7 +38,21 @@ public class Metronomo : MonoBehaviour
         {
             termino = true;
             CancelInvoke("playSound");
-            master.playTrack();
+
+            track = master.darTrack();
+
+            switch(track)
+            {
+                case 1:
+                    master.playTrack1();
+                    break;
+                case 2:
+                    master.playTrack2();
+                    break;
+                case 3:
+                    master.playTrack3();
+                    break;
+            }
 
             if (guiaMetronomo) {
                 guiaMetronomo = false;
