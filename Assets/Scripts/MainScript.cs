@@ -9,6 +9,9 @@ public class MainScript : MonoBehaviour
 {
     public GameObject hiHat;
     public GameObject snare;
+    public GameObject snare2;
+    public GameObject snare3;
+    public GameObject snare4;
     public GameObject metronomo;
 
     public GameObject marcador;
@@ -27,10 +30,16 @@ public class MainScript : MonoBehaviour
 
     private Sound soundHiHat;
     private Sound soundSnare;
+    private Sound soundSnare2;
+    private Sound soundSnare3;
+    private Sound soundSnare4;
     private Metronomo metronomoScr;
 
     private AudioSource hiHatSource;
     private AudioSource snareSource;
+    private AudioSource snareSource2;
+    private AudioSource snareSource3;
+    private AudioSource snareSource4;
     private AudioSource metronomoSource;
     private int pickUpItems = 0;
 
@@ -52,17 +61,23 @@ public class MainScript : MonoBehaviour
 
         hiHatSource = hiHat.transform.Find("Collid").GetComponent<AudioSource>();
         snareSource = snare.transform.Find("Collid").GetComponent<AudioSource>();
+        snareSource2 = snare2.transform.Find("Collid").GetComponent<AudioSource>();
+        snareSource3 = snare3.transform.Find("Collid").GetComponent<AudioSource>();
+        snareSource4 = snare4.transform.Find("Collid").GetComponent<AudioSource>();
 
 
         metronomoScr = metronomo.GetComponent<Metronomo>();
         soundHiHat = hiHat.transform.Find("Collid").GetComponent<Sound>();
         soundSnare = snare.transform.Find("Collid").GetComponent<Sound>();
+        soundSnare2 = snare2.transform.Find("Collid").GetComponent<Sound>();
+        soundSnare3 = snare3.transform.Find("Collid").GetComponent<Sound>();
+        soundSnare4 = snare4.transform.Find("Collid").GetComponent<Sound>();
 
         textBPM.GetComponent<TextMesh>().text = bpm.ToString();
 
         mano = GameObject.Find("Player").transform.Find("SteamVRObjects").transform.Find("RightHand").GetComponent<Hand>();
 
-        //Invoke("count", 5f);
+        //Invoke("count", 3f);
         //InvokeRepeating("velocidad", 0f, 0.2f);
     }
 
@@ -119,22 +134,32 @@ public class MainScript : MonoBehaviour
 
     public void playTrack2()
     {
-        GameObject b = GameObject.Instantiate(hiHat);
-        Sound b2 = b.transform.Find("Collid").GetComponent<Sound>();
+        soundHiHat.playRepeatingSound(0f, tempoScns / 2f, 16);
+        soundSnare.playRepeatingSound(tempoScns / 2f, tempoScns * 2f, 4);
+        soundSnare2.playRepeatingSound(tempoScns, tempoScns * 4f, 2);
+        soundSnare3.playRepeatingSound(tempoScns * 1.75f, tempoScns * 4f, 2);
+        soundSnare4.playRepeatingSound(tempoScns * 3.25f, tempoScns * 4f, 2);
 
-        soundHiHat.playRepeatingSound(0f, tempoScns, 4);
-        b2.playRepeatingSound(0f, tempoScns / 2f, 16);
+        listaSources = new Sound[1];
 
-
-        listaSources = new Sound[2];
         listaSources[0] = soundHiHat;
-        listaSources[1] = b2;
+
         InvokeRepeating("verificarTermino", 0f, 3f);
     }
 
     public void playTrack3()
     {
+        soundHiHat.playRepeatingSound(0f, tempoScns / 2f, 16);
 
+        soundSnare.playRepeatingSound(tempoScns, tempoScns * 2f, 4);
+        soundSnare2.playRepeatingSound(tempoScns * 1.75f, tempoScns * 4f, 2);
+        soundSnare3.playRepeatingSound(tempoScns * 2.25f, tempoScns * 4f, 2);
+
+        listaSources = new Sound[1];
+
+        listaSources[0] = soundHiHat;
+
+        InvokeRepeating("verificarTermino", 0f, 3f);
     }
 
     private void verificarTermino()
@@ -149,38 +174,6 @@ public class MainScript : MonoBehaviour
 
         termino = true;
         validarResultados();
-
-        //Recorrer Lista
-
-        /*
-        string str = "Estimado: ";
-
-        foreach(Golpe golpe in listaGolpes)
-        {
-            //if(!golpe.nombreGolpeado.Contains("Hi"))
-            str += golpe.nombreGolpeado + ": " + golpe.timestamp + "; ";
-        }
-
-        Debug.Log(str);
-
-        str = "Real : ";
-        foreach (Golpe golpe in listaGolpesUsuario)
-        {
-            str += golpe.nombreGolpeado + ": " + golpe.timestamp + "; ";
-        }
-
-        Debug.Log(str);
-        
-        ArrayList errores = validarGolpes();
-
-        str = "Errores : ";
-        foreach (Golpe golpe in errores)
-        {
-            str += golpe.nombreGolpeado + ": " + golpe.timestamp + "; ";
-        }
-
-        Debug.Log(str);
-        */
 
     }
 
